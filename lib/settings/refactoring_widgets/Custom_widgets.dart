@@ -1,3 +1,4 @@
+import 'package:doctor_app/models/doctors_category.dart';
 import 'package:doctor_app/settings/system/widget_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
@@ -51,7 +52,7 @@ class ServiceWidget extends StatelessWidget {
         children: [
           Text(
             'Service',
-            style: categoryStyle(16),
+            style: categoryStyle(),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -84,7 +85,7 @@ class ServiceWidget extends StatelessWidget {
                         margin: EdgeInsets.symmetric(horizontal: 15),
                         child: Text(
                           "Doctors Appointment",
-                          style: categoryStyle(14),
+                          style: regularStyle(),
                         ))
                   ],
                 ),
@@ -117,7 +118,7 @@ class ServiceWidget extends StatelessWidget {
                         margin: EdgeInsets.symmetric(horizontal: 15),
                         child: Text(
                           "Appointment with Patriot",
-                          style: categoryStyle(14),
+                          style: regularStyle(),
                         ))
                   ],
                 ),
@@ -132,7 +133,7 @@ class ServiceWidget extends StatelessWidget {
 
 class CustomButton extends StatelessWidget {
   CustomButton(
-      {required this.btnText,
+      {super.key, required this.btnText,
       required this.onTap,
       this.isOutlined,
       this.isIcon,
@@ -184,21 +185,50 @@ class CustomButton extends StatelessWidget {
   }
 }
 
-class MyCard extends StatelessWidget {
-  const MyCard({super.key});
+class DoctorCategory extends StatelessWidget {
+  const DoctorCategory({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-          color: const Color(0xffEFEFEF),
-          borderRadius: BorderRadius.circular(5)),
-      child: const Padding(
-        padding: EdgeInsets.all(8.0),
-        child: Badge(
-          child: Icon(Icons.notifications_none, size: 30),
-        ),
-      ),
-    );
+        height: 120,
+        margin: const EdgeInsets.only(top: 10),
+        child: ListView.separated(
+          separatorBuilder: (context, index) {
+            return const SizedBox(width: 10,);
+          },
+          itemCount: specialistsList.length,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) {
+            return Column(
+              children: [
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 8),
+                  height: mq.height * .07,
+                  width: mq.width * .18,
+                  decoration: BoxDecoration(
+                      color: secondaryColor.withOpacity(0.2),
+                      borderRadius: BorderRadius.circular(5)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: SvgPicture.asset(
+                      '${specialistsList[index].icon}',
+                      color: secondaryColor,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: mq.width * .18,
+                  child: Text(
+                    "${specialistsList[index].categoryName}",
+                    style: myFontStyle(14),
+                  ),
+                )
+              ],
+            );
+          },
+        ));
   }
 }

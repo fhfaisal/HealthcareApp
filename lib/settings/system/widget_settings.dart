@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 appbarStyle(){
@@ -10,9 +11,9 @@ appbarStyle(){
     height: 5,
   );
 }
-categoryStyle(double?FS){
+categoryStyle(){
   return GoogleFonts.nunito(
-    fontSize: FS,
+    fontSize: 20,
     fontWeight: FontWeight.w600,
     color: textPureBlack,
     height: 2,
@@ -39,6 +40,13 @@ myFontStyle(double FS,[FontWeight? Fw, Color? clr]){
     fontSize:FS ,
     fontWeight: Fw,
     color:clr ,
+  );
+}
+regularStyle(){
+  return GoogleFonts.nunito(
+    fontSize:16 ,
+    fontWeight: FontWeight.w500,
+    color: textPureBlack,
   );
 }
 svgPic(String path ,[double? height,Color? clr]){
