@@ -8,7 +8,6 @@ appbarStyle(){
     fontSize: 20 ,
     fontWeight: FontWeight.w600,
     color: textPureBlack,
-    height: 5,
   );
 }
 categoryStyle(){
@@ -55,7 +54,7 @@ svgPic(String path ,[double? height,Color? clr]){
 
 const Color scaffoldBgClr=Color(0xffFFFFFF);
 const Color textPureBlack=Color(0xff0B0B0B);
-const Color cardClr=Color(0xff292B3E);
+Color cardColor=const Color(0xffEEF5FC).withOpacity(0.2);
 const Color secondaryColor=Color(0xff01BDF3);
 const Color primaryColors=Color(0xff0671E0);
 const Color levelClr=Color(0xff8A8A8E);

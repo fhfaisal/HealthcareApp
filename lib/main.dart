@@ -1,5 +1,4 @@
 import 'package:doctor_app/navigation.dart';
-import 'package:doctor_app/screens/home/home_page.dart';
 import 'package:doctor_app/settings/system/widget_settings.dart';
 import 'package:flutter/material.dart';
 
@@ -20,10 +19,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
         appBarTheme: AppBarTheme(
-          titleTextStyle: appbarStyle()
+          titleTextStyle: appbarStyle(),
+          centerTitle: true,
         )
       ),
-      home: CustomBottomNavbar(),
+      home: const CustomBottomNavbar(),
     );
   }
 }

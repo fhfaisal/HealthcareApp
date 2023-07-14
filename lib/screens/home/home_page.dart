@@ -1,4 +1,5 @@
 
+import 'package:doctor_app/screens/home/telemedicine.dart';
 import 'package:doctor_app/settings/refactoring_widgets/Custom_widgets.dart';
 import 'package:doctor_app/settings/system/widget_settings.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.symmetric(horizontal: mq.width * .02),
+            margin: EdgeInsets.symmetric(horizontal: mq.width * .04),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -77,16 +78,22 @@ class HomeScreen extends StatelessWidget {
                 const ServiceWidget(),
                 CustomButton(
                   btnText: 'Other Services',
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Telemedicine(),));
+                  },
                   isIcon: true,
                   addIcon: Icons.arrow_forward_outlined,
                   color: Colors.white,
                 ),
-                Text(
-                  'Choose from top specialists',
-                  style: categoryStyle(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: Text(
+                    'Choose from top specialists',
+                    style: categoryStyle(),
+                  ),
                 ),
                 const DoctorCategory(),
+
               ],
             ),
           ),

@@ -67,7 +67,7 @@ class ServiceWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      margin: EdgeInsets.all(15),
+                      margin: const EdgeInsets.all(15),
                       height: mq.height * .08,
                       width: mq.width * .20,
                       decoration: BoxDecoration(
@@ -82,7 +82,7 @@ class ServiceWidget extends StatelessWidget {
                       ),
                     ),
                     Container(
-                        margin: EdgeInsets.symmetric(horizontal: 15),
+                        margin: const EdgeInsets.symmetric(horizontal: 15),
                         child: Text(
                           "Doctors Appointment",
                           style: regularStyle(),
@@ -164,14 +164,14 @@ class CustomButton extends StatelessWidget {
       ),
       child: isIcon == null
           ? Text(
-              "${btnText}",
+              btnText,
               style: myFontStyle(17, FontWeight.w600, Colors.white),
             )
           : Row(
         mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "${btnText}",
+                  btnText,
                   style: myFontStyle(17, FontWeight.w600, Colors.white),
                 ),
                 Icon(
@@ -192,20 +192,23 @@ class DoctorCategory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        height: 120,
-        margin: const EdgeInsets.only(top: 10),
-        child: ListView.separated(
-          separatorBuilder: (context, index) {
-            return const SizedBox(width: 10,);
-          },
-          itemCount: specialistsList.length,
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) {
-            return Column(
+    return SizedBox(
+      height: 100,
+      child: GridView.builder(
+        itemCount: specialistsList.length,
+        scrollDirection: Axis.horizontal,
+        shrinkWrap: false,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          childAspectRatio: 1.1,
+          crossAxisCount: 1,
+          mainAxisSpacing: 0,
+
+        ),
+        itemBuilder: (context, index) {
+          return Container(
+            child: Column(
               children: [
                 Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 8),
                   height: mq.height * .07,
                   width: mq.width * .18,
                   decoration: BoxDecoration(
@@ -214,21 +217,25 @@ class DoctorCategory extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: SvgPicture.asset(
-                      '${specialistsList[index].icon}',
+                      specialistsList[index].icon,
                       color: secondaryColor,
                     ),
                   ),
                 ),
-                SizedBox(
+                Container(
                   width: mq.width * .18,
+                  margin: const EdgeInsets.symmetric(vertical: 5),
                   child: Text(
-                    "${specialistsList[index].categoryName}",
-                    style: myFontStyle(14),
+                    specialistsList[index].categoryName,
+                    style: myFontStyle(12),
+                    textAlign: TextAlign.center,
                   ),
-                )
+                ),
               ],
-            );
-          },
-        ));
+            ),
+          );
+        },
+      ),
+    );
   }
 }
