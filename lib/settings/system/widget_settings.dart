@@ -34,11 +34,12 @@ boldStyle(){
     height: 2,
   );
 }
-myFontStyle(double FS,[FontWeight? Fw, Color? clr]){
+myFontStyle(double FS,[FontWeight? Fw, Color? clr, double? height]){
   return GoogleFonts.nunito(
     fontSize:FS ,
     fontWeight: Fw,
     color:clr ,
+    height: height,
   );
 }
 regularStyle(){
@@ -58,4 +59,5 @@ Color cardColor=const Color(0xffEEF5FC).withOpacity(0.2);
 const Color secondaryColor=Color(0xff01BDF3);
 const Color primaryColors=Color(0xff0671E0);
 const Color levelClr=Color(0xff8A8A8E);
+const Color text2Clr=Color(0xff575F75);
 late Size mq;

@@ -1,4 +1,5 @@
 import 'package:doctor_app/models/doctors_category.dart';
+import 'package:doctor_app/screens/home/category_details_screen.dart';
 import 'package:doctor_app/settings/refactoring_widgets/Custom_widgets.dart';
 import 'package:doctor_app/settings/system/widget_settings.dart';
 import 'package:flutter/material.dart';
@@ -98,7 +99,10 @@ class Telemedicine extends StatelessWidget {
 
                 ),
                 itemBuilder: (context, index) {
-                  return Container(
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => CategoryDetailsScreen(specialist: specialistsList[index]),));
+                    },
                     child: Column(
                       children: [
                         Container(
@@ -110,7 +114,7 @@ class Telemedicine extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.all(15.0),
                             child: SvgPicture.asset(
-                              specialistsList[index].icon,
+                              '${specialistsList[index].icon}',
                               color: secondaryColor,
                             ),
                           ),
@@ -119,7 +123,7 @@ class Telemedicine extends StatelessWidget {
                           width: mq.width * .18,
                           margin: const EdgeInsets.symmetric(vertical: 5),
                           child: Text(
-                            specialistsList[index].categoryName,
+                            '${specialistsList[index].categoryName}',
                             style: myFontStyle(12),
                             textAlign: TextAlign.center,
                           ),
@@ -150,7 +154,10 @@ class Telemedicine extends StatelessWidget {
 
                 ),
                 itemBuilder: (context, index) {
-                  return Container(
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => CategoryDetailsScreen(specialist: specialistsList[index]),));
+                    },
                     child: Column(
                       children: [
                         Container(
@@ -162,7 +169,7 @@ class Telemedicine extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.all(15.0),
                             child: SvgPicture.asset(
-                              specialistsList[index].icon,
+                              '${specialistsList[index].icon}',
                               color: secondaryColor,
                             ),
                           ),
@@ -171,7 +178,7 @@ class Telemedicine extends StatelessWidget {
                           width: mq.width * .18,
                           margin: const EdgeInsets.symmetric(vertical: 5),
                           child: Text(
-                            specialistsList[index].categoryName,
+                            '${specialistsList[index].categoryName}',
                             style: myFontStyle(12),
                             textAlign: TextAlign.center,
                           ),
@@ -202,7 +209,10 @@ class Telemedicine extends StatelessWidget {
 
                 ),
                 itemBuilder: (context, index) {
-                  return Container(
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => CategoryDetailsScreen(specialist: specialistsList[index]),));
+                    },
                     child: Column(
                       children: [
                         Container(
@@ -214,7 +224,7 @@ class Telemedicine extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.all(15.0),
                             child: SvgPicture.asset(
-                              specialistsList[index].icon,
+                              '${specialistsList[index].icon}',
                               color: secondaryColor,
                             ),
                           ),
@@ -223,7 +233,7 @@ class Telemedicine extends StatelessWidget {
                           width: mq.width * .18,
                           margin: const EdgeInsets.symmetric(vertical: 5),
                           child: Text(
-                            specialistsList[index].categoryName,
+                            '${specialistsList[index].categoryName}',
                             style: myFontStyle(12),
                             textAlign: TextAlign.center,
                           ),
